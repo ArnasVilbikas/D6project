@@ -27,6 +27,8 @@ e1Position = [2, 3]
 e2Position = [2, 18]
 e3Position = [19, 18]
 
+gameExit = False
+
 xCoord = 0
 yCoord = 0
 x = 0
@@ -34,10 +36,10 @@ y = 0
 
 clock=pygame.time.Clock()
 running = True 
-while running:
+while not gameExit:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running == False
+            gameExit=True
     while x <= 19:
         while y <= 19:
             if arena[x][y] == 'e1D' or arena[x][y] == 'e2D' or arena[x][y] == 'e3D':
@@ -82,7 +84,7 @@ while running:
         print("Reached end of loop X")
 
     pygame.display.flip()
-    clock.tick(120)
+    clock.tick(60)
 
 pygame.quit()
 
